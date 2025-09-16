@@ -64,30 +64,8 @@ SELECT * FROM PALET;
 Para la estructura del proyecto me he basado en el modelo típico donde se estructuran los archivos en model, service y controller típico de las apis con un directorio aparte para manejar errores y otro
 para los dtos entre otros más archivos. Vendría a ser algo así:
 
-expeditionsec/
-├─ src/main/java/com/example/expeditionsec
-│ ├─ controller/
-│ │ └─ AssignController.java # Endpoint /api/assignments/pallet-to-order
-│ ├─ dto/
-│ │ ├─ AssignPalletRequest.java # record (palletId, orderId)
-│ │ └─ AssignPalletResponse.java # record (palletId, orderId, truckId, message)
-│ ├─ exception/
-│ │ ├─ BusinessException.java
-│ │ └─ NotFoundException.java
-│ ├─ model/
-│ │ ├─ Camion.java # EN_MUELLE / EN_RUTA
-│ │ ├─ OrdenCarga.java # ABIERTA / EN_CARGA / CERRADA
-│ │ └─ Palet.java # DISPONIBLE / ASIGNADO / EN_TRANSITO
-│ ├─ repository/
-│ │ ├─ CamionRepository.java
-│ │ ├─ OrdenCargaRepository.java
-│ │ └─ PaletRepository.java
-│ └─ service/
-│ └─ AssignService.java # Lógica de asignación (@Transactional)
-├─ src/main/resources/
-│ ├─ application.properties
-│ └─ (opcional) import.sql # Solo de referencia; no se ejecuta automáticamente
-└─ pom.xml
+<img width="706" height="1567" alt="image" src="https://github.com/user-attachments/assets/f6690462-5968-4993-84ce-5277c9fa5186" />
+<img width="620" height="1477" alt="image" src="https://github.com/user-attachments/assets/abc19648-d7bf-4073-91cd-6fe29a72f722" />
 
 ---
 
@@ -154,8 +132,12 @@ values (101, 'Europalé', 30.0, 1.2, 0.8, 'Ciruelas', 'DISPONIBLE', null);
 - Probar con Postman
 POST http://localhost:8080/api/assignments/pallet-to-order con el body JSON mostrado arriba.
 
+<img width="2208" height="954" alt="image" src="https://github.com/user-attachments/assets/3691bde1-2fd3-44bf-a088-5e0f68ad33ac" />
+
+
 - Por último, manteniéndo arrancado el back, arrancaríamos el front y tras hacer npm run serve, accederíamos a la url que nos ofrece la terminal al ejecutar el front y ya
 podríamos asignar un palet a un camión/orden.
+
 
 ***Decisiones y justificación***
 La plantilla para organizar el proyecto de back la cree a partir de Spring Initializr que me gusta mucho para arrancar.
